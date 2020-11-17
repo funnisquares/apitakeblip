@@ -25,9 +25,9 @@ class AgendamentoBanho(Resource):
 
     def post(self):
         args = parser.parse_args()
-        if not db['Banho']['Agenda'].get(args['Dia'], {}).get(args['Hora'], {}).get('Agendado', 0):
-            db['Banho']['Agenda'][args['Dia']][args['Hora']]['Agendado'] = 1
-        return db['Banho']['Agenda'][args['Dia']][args['Hora']], 201
+        if not db['Banho']['Agenda'].get(args['Mes'], {}).get(args['Dia'], {}).get('Agendado', 0):
+            db['Banho']['Agenda'][args['Mes']][args['Dia']]['Agendado'] = 1
+        return db['Banho']['Agenda'][args['Mes']][args['Dia']], 201
 
 api.add_resource(AgendamentoBanho, '/Banho')
 
