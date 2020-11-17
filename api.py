@@ -31,9 +31,5 @@ class AgendamentoBanho(Resource):
 
 api.add_resource(AgendamentoBanho, '/Banho')
 
-class AgendamentoBanhoToza:
-    def get(self):
-        return {'Agenda': [db['Banho']['Agenda'] for agendado in db['Hotel']['Agenda'] if not agendado]}
-
 if __name__ == '__main__':
     app.run(debug=True)
